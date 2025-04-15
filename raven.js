@@ -5,6 +5,7 @@ const path = require('path');
 const util = require("util");
 global.axios = require('axios').default
 const chalk = require("chalk");
+const uploadToCatbox = require('./lib/catbox.js');
 const speed = require("performance-now");
 const Genius = require("genius-lyrics");
 const yts = require("yt-search");
@@ -373,7 +374,7 @@ let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══�
 ┃✫│🕸️ 𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗥𝗔𝗠 : 32𝗚𝗕 𝗼𝗳 64𝗚𝗕
 ┃✫│═════════════════════
 ┃✬│🅼🅰🅳🅴 🅾🅽 🅴🅰🆁🆃🅷
-┃✬│█▀██████▀█▀██▀███▄█▀█
+┃✬│🅲🅰🅻🅻 🅼🅴 🅰🆆🅴🆂🅾🅼🅴 
 ┃✬│🅱🅻🅰🅲🅺🅼🅰🅲🅷🅰🅽🆃-🅼🅳
 ┃✫│═════════════════════
 ╰══──────────────────══╯
@@ -1809,13 +1810,13 @@ m.reply("*Wait a moment...*");
       return m.reply("𝗤𝘂𝗼𝘁𝗲 𝗮𝗻 𝗶𝗺𝗮𝗴𝗲 𝘄𝗶𝘁𝗵 𝘁𝗵𝗲 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀 𝗲𝗵!");
     }
     if (!text) {
-      return m.reply("𝗣𝗿𝗼𝘃𝗶𝗱𝗲 𝘀𝗼𝗺𝗲 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀 𝗲𝗵! 𝗧𝗵𝗶𝘀 𝗶𝘀 𝐁𝐋𝐀𝐂𝐊𝐌𝐀𝐂𝐇𝐀𝐍𝐓 𝐁𝐎𝐓 𝗔𝗶, 𝘂𝘀𝗶𝗻𝗴 𝗴𝗲𝗺𝗶𝗻𝗶-𝗽𝗿𝗼-𝘃𝗶𝘀𝗶𝗼𝗻 𝘁𝗼 𝗮𝗻𝗮𝗹𝘆𝘀𝗲 𝗶𝗺𝗮𝗴𝗲𝘀.");
+      return m.reply("𝗣𝗿𝗼𝘃𝗶𝗱𝗲 𝘀𝗼𝗺𝗲 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀 𝗲𝗵! 𝗧𝗵𝗶𝘀 𝗶𝘀 𝐁𝐋𝐀𝐂𝐊𝐌𝐀𝐂𝐇𝐀𝐍𝐓 𝗔𝗶, 𝘂𝘀𝗶𝗻𝗴 𝗴𝗲𝗺𝗶𝗻𝗶-𝗽𝗿𝗼-𝘃𝗶𝘀𝗶𝗼𝗻 𝘁𝗼 𝗮𝗻𝗮𝗹𝘆𝘀𝗲 𝗶𝗺𝗮𝗴𝗲𝘀.");
     }
     if (!/image/.test(mime)) {
       return m.reply("𝗛𝘂𝗵 𝘁𝗵𝗶𝘀 𝗶𝘀 𝗻𝗼𝘁 𝗮𝗻 𝗶𝗺𝗮𝗴𝗲! 𝗣𝗹𝗲𝗮𝘀𝗲 𝗧𝗮𝗴 𝗮𝗻 𝗶𝗺𝗮𝗴𝗲 𝘄𝗶𝘁𝗵 𝘁𝗵𝗲 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀 𝗲𝗵 !");
     }
     let _0x3439a2 = await client.downloadAndSaveMediaMessage(m.quoted);
-    let _0x3dfb7c = await uploadtoimgur(_0x3439a2);
+    let _0x3dfb7c = await uploadToCatbox(_0x3439a2);
     m.reply("𝗔 𝗺𝗼𝗺𝗲𝘁, 𝗹𝗲𝗺𝗺𝗲 𝗮𝗻𝗮𝗹𝘆𝘀𝗲 𝘁𝗵𝗲 𝗰𝗼𝗻𝘁𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗵𝗲 𝗜𝗺𝗮𝗴𝗲...");
     const _0x4e9e6a = new _0x817910("AIzaSyDJUtskTG-MvQdlT4tNE319zBqLMFei8nQ");
     async function _0x309a3c(_0x1400ed, _0x1a081e) {
@@ -3147,8 +3148,8 @@ const title = data.result.title;
 //========================================================================================================================//		      
  case 'sc': case 'script': case 'repo':
 
- client.sendMessage(m.chat, { image: { url: `https://files.catbox.moe/ztt0xb.jpg` }, caption: 
-` Hello👋 *${pushname}*,You can deploy 𝐁𝐋𝐀𝐂𝐊𝐌𝐀𝐂𝐇𝐀𝐍𝐓 𝐁𝐎𝐓using the GitHub link below 𓅂\n\nFork and give us a star✨.\n\n https://github.com/Blackie254/black-super-bot\n\nLink with your whatsapp using pairing link below\n\nhttps://https:https://blacks-mf.onrender.com\n\nCopy the session_id and Fill in the required Variables before Deploy\n\nEnjoy and have fun with ░𝐁𝐋𝐀𝐂𝐊𝐌𝐀𝐂𝐇𝐀𝐍𝐓 𝐁𝐎𝐓░\n\n𝗠𝗮𝗱𝗲 𝗼𝗻 𝗲𝗮𝗿𝘁𝗵 𝗯𝘆 𝗛𝘂𝗺𝗮𝗻𝘀👨‍💻!`},{quoted : m });
+ client.sendMessage(m.chat, { image: { url: `https://files.catbox.moe/ofylbc.jpg` }, caption: 
+` Hello👋 *${pushname}*,🆈🅾🆄 🅲🅰🅽 🅳🅴🅿🅻🅾🆈 𝐁𝐋𝐀𝐂𝐊𝐌𝐀𝐂𝐇𝐀𝐍𝐓 𝐁𝐎𝐓 🆄🆂🅸🅽🅶 🆃🅷🅴 🅶🅸🆃🅷🆄🅱 🅻🅸🅽🅺 🅱🅴🅻🅻🅾🆆 𓅂\n\n🅵🅾🆁🅺 🅰🅽🅳 🅶🅸🆅🅴 🆄🆂 🅰 🆂🆃🅰🆁✨.\n\n https://github.com/Blackie254/black-super-bot\n\n🅻🅸🅽🅺 🆆🅸🆃🅷 🆈🅾🆄🆁 🆆🅷🅰🆃🆂🅰🅿 🆄🆂🅸🅽🅶 🆃🅷🅴 🅿🅰🅸🆁🅸🅽🅶 🅲🅾🅳🅴 🅱🅴🅻🅾🆆👇🏻👇🏻\n\nhttps://blacks-mf.onrender.com\n\nCopy the session_id and Fill in the required Variables before Deploy\n\n🅴🅽🅹🅾🆈 😊 🅰🅽🅳  🅷🅰🆅🅴 🅵🆄🅽 🆆🅸🆃🅷 𝐁𝐋𝐀𝐂𝐊𝐌𝐀𝐂𝐇𝐀𝐍𝐓 𝐁𝐎𝐓\n\n𝗠𝗮𝗱𝗲 𝗼𝗻 𝗲𝗮𝗿𝘁𝗵 𝗯𝘆 𝗛𝘂𝗺𝗮𝗻𝘀👨‍💻!`},{quoted : m });
 
    break;
                                                   
